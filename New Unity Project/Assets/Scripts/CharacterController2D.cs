@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
+    [SerializeField]
+    private AudioClip soundJump;
+    private AudioSource audioSourceJump;
     public float speed = 10;          // скорость перемещения
     public float jumpForce = 10;      // скорость прыжка
     [SerializeField]
@@ -11,7 +14,7 @@ public class CharacterController2D : MonoBehaviour
     private Rigidbody2D rb2D;
     private float horizontal;         //ось горизонт 
     private float vertical;            //ось вертикаль
-    private bool Jumped = true;        // флаг прыжок
+    private bool Jumped = false;        // флаг прыжок
     private bool facingRight = true;   // куда повернут
     [SerializeField]
     private bool isLadder = false;     // флаг лесницы
@@ -26,6 +29,10 @@ public class CharacterController2D : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();   // кеш тела
+        audioSourceJump = gameObject.AddComponent<AudioSource>();
+        audioSourceJump.playOnAwake = false;
+        audioSourceJump.volume = 0.5f;
+        audioSourceJump.clip = soundJump;
 
     }
 
@@ -117,10 +124,11 @@ public class CharacterController2D : MonoBehaviour
             if (isGround) // если на земле 
             {
                rb2D.AddForce(Vector2.up * jumpForce); // прыгай 
+               audioSourceJump.Play();
             }
             isGround = false;  // не на земле 
             isjump = true;     // в прыжке
-
+            
         }
     }
 
