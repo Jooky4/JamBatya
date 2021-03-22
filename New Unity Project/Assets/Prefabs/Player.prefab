@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundJump: {fileID: 8300000, guid: 64511184a31bd644a9e0456f1c467cf0, type: 3}
   speed: 10
-  jumpForce: 400
+  jumpForce: 350
   isGround: 0
   isLadder: 0
   isjump: 0
