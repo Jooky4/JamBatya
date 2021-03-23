@@ -16,19 +16,26 @@ public class CameraManager : MonoBehaviour
     private float positionCameraZ = -10f;
     [SerializeField]
     private float positionCameraY = 30f;
+    public bool isMoveCamera = true;
 
 
 
     void Start()
     {
+
         transform.position = new Vector3(startPosition.transform.position.x, positionCameraY, positionCameraZ);
 
     }
 
     void Update()
     {
-        speedMove = stepMoveCamera * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, endPosition.position, speedMove);
-        transform.position = new Vector3(transform.position.x, positionCameraY, positionCameraZ);
+
+        if (isMoveCamera)
+        {
+            speedMove = stepMoveCamera * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, endPosition.position, speedMove);
+            transform.position = new Vector3(transform.position.x, positionCameraY, positionCameraZ);
+        }
+       
     }
 }

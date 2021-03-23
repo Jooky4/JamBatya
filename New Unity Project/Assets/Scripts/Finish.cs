@@ -9,10 +9,12 @@ public class Finish : MonoBehaviour
     [SerializeField]
     private GameObject[] victoryPanel;
 
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GetComponentInParent<GameManager>();
     }
 
     // Update is called once per frame
@@ -23,9 +25,14 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
+
+        Debug.Log("Finish");
         int rnd = Random.Range(0,3);
         victoryPanel[rnd].SetActive(true);
+        gameManager.StopCameraAndPlayer();
+
+
+
             
     }
 

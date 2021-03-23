@@ -5856,6 +5856,7 @@ MonoBehaviour:
   stepMoveCamera: 5
   positionCameraZ: -50
   positionCameraY: 30
+  isMoveCamera: 1
 --- !u!81 &474158872
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6726,6 +6727,8 @@ MonoBehaviour:
   - {fileID: 1861943054}
   - {fileID: 1545755192}
   - {fileID: 2116917330}
+  Camera: {fileID: 474158870}
+  stop: 0
 --- !u!4 &538060115
 Transform:
   m_ObjectHideFlags: 0

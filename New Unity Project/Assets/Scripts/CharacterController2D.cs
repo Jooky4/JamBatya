@@ -8,10 +8,12 @@ public class CharacterController2D : MonoBehaviour
     private AudioClip soundJump;
     private AudioSource audioSourceJump;
     public float speed = 10;          // скорость перемещения
+    [SerializeField]
+    private float speedMoveLadder = 10;
     public float jumpForce = 10;      // скорость прыжка
     [SerializeField]
     private bool isGround = false;    // флаг земля
-    private Rigidbody2D rb2D;
+    private Rigidbody2D rigidbody2D;
     private float horizontal;         //ось горизонт 
     private float vertical;            //ось вертикаль
     private bool Jumped = false;        // флаг прыжок
@@ -21,14 +23,14 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField]
     private bool isjump = false;       // флаг прыжок
     public KeyCode action = KeyCode.E; // клавиша действия
-    public bool isLive = true;
+    public bool isStop = true;
 
   
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();   // кеш тела
+        rigidbody2D = GetComponent<Rigidbody2D>();   // кеш тела
         audioSourceJump = gameObject.AddComponent<AudioSource>();
         audioSourceJump.playOnAwake = false;
         audioSourceJump.volume = 0.5f;
@@ -39,7 +41,7 @@ public class CharacterController2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isLive)
+        if (isStop)
         {
             UpdateAxis();
             UpdateFlip();
@@ -49,12 +51,14 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isLive)
+        if (isStop)
         {
             Move();
             Jump();
         }
-        
+     
+       
+
     }
 
     /// <summary>
@@ -111,7 +115,7 @@ public class CharacterController2D : MonoBehaviour
     /// </summary>
     private void Move()
     {
-       rb2D.velocity = new Vector2(horizontal * speed, rb2D.velocity.y);
+       rigidbody2D.velocity = new Vector2(horizontal * speed, rigidbody2D.velocity.y);
     }
 
     /// <summary>
@@ -123,7 +127,7 @@ public class CharacterController2D : MonoBehaviour
         {
             if (isGround) // если на земле 
             {
-               rb2D.AddForce(Vector2.up * jumpForce); // прыгай 
+               rigidbody2D.AddForce(Vector2.up * jumpForce); // прыгай 
                audioSourceJump.Play();
             }
             isGround = false;  // не на земле 
@@ -183,20 +187,20 @@ public class CharacterController2D : MonoBehaviour
         {
             if (vertical != 0) // если нажаты   W или  S
             {
-                transform.Translate(new Vector2(0, speed * vertical * Time.fixedDeltaTime)); // движение по лестнице
+                transform.Translate(new Vector2(0, speedMoveLadder * vertical * Time.fixedDeltaTime)); // движение по лестнице
                 isGround = false; // не на  земле
             }
 
             if (!isGround && !isjump)  // если не на земле и не в прыжке
             {
 
-                rb2D.gravityScale = 0;  // откл гравитацию
+                rigidbody2D.gravityScale = 0;  // откл гравитацию
             }
 
         }
         else
         {
-            rb2D.gravityScale = 1;     // вкл гравитацию
+            rigidbody2D.gravityScale = 1;     // вкл гравитацию
         }
 
 

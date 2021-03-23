@@ -19,9 +19,13 @@ public class GameManager : MonoBehaviour
     private Text bottleText;
     private int bottle;
     private Alcohol alcohol;
-    private CharacterController2D cC2D;
+    private CharacterController2D characterController2D;
     [SerializeField]
     private GameObject[] panelLoss;
+    [SerializeField]
+    private GameObject Camera;
+    private CameraManager cameraManager;
+    public bool stop;
 
 
 
@@ -33,7 +37,9 @@ public class GameManager : MonoBehaviour
     {
         Player = Instantiate(prefabPlayer, pointSpawn.position, Quaternion.identity);
         alcohol = Player.GetComponent<Alcohol>();
-        cC2D = Player.GetComponent<CharacterController2D>();
+        characterController2D = Player.GetComponent<CharacterController2D>();
+        cameraManager = Camera.GetComponent<CameraManager>();
+
 
 
     }
@@ -45,15 +51,23 @@ public class GameManager : MonoBehaviour
         sliderAlcohol.value = alcohol.alcohol;
         bottleText.text = alcohol.bottle.ToString();
 
-        if (alcohol.alcohol == 1 && cC2D.isLive)
+        if (alcohol.alcohol == 1 && characterController2D.isStop)
         {
-           
-            cC2D.isLive = false;
+            StopCameraAndPlayer();
             int rnd = Random.Range(0, 3);
             Debug.Log("Belka " + rnd );
             panelLoss[rnd].SetActive(true);
+           
         }
 
+        
 
+
+    }
+
+    public void StopCameraAndPlayer()
+    {
+        characterController2D.isStop = false;
+        cameraManager.isMoveCamera = false;
     }
 }
