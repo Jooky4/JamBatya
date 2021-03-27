@@ -1,19 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+
 
 public class CharacterController2D : MonoBehaviour
 {
     [SerializeField]
     private AudioClip soundJump;
     private AudioSource audioSourceJump;
+    [SerializeField]
+    private AudioMixerGroup audioMixerGroup;
     public float speed = 10;          // скорость перемещения
     [SerializeField]
-    private float speedMoveLadder = 10;
+    private float speedMoveLadder = 10;  //скорость перемещения по леснице
     public float jumpForce = 10;      // скорость прыжка
     [SerializeField]
     private bool isGround = false;    // флаг земля
     private Rigidbody2D rigidbody2D;
+    private BoxCollider2D boxCollider2D;
     private float horizontal;         //ось горизонт 
     private float vertical;            //ось вертикаль
     private bool Jumped = false;        // флаг прыжок
@@ -24,6 +29,8 @@ public class CharacterController2D : MonoBehaviour
     private bool isjump = false;       // флаг прыжок
     public KeyCode action = KeyCode.E; // клавиша действия
     public bool isStop = true;
+  
+    
 
   
 
@@ -31,7 +38,10 @@ public class CharacterController2D : MonoBehaviour
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();   // кеш тела
+        boxCollider2D = GetComponent<BoxCollider2D>();
+
         audioSourceJump = gameObject.AddComponent<AudioSource>();
+        audioSourceJump.outputAudioMixerGroup = audioMixerGroup;
         audioSourceJump.playOnAwake = false;
         audioSourceJump.volume = 0.5f;
         audioSourceJump.clip = soundJump;
@@ -51,11 +61,11 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isStop)
-        {
+       // if (isStop)
+      //  {
             Move();
             Jump();
-        }
+      //  }
      
        
 
@@ -87,7 +97,7 @@ public class CharacterController2D : MonoBehaviour
     }
 
     /// <summary>
-    /// Проверка на движение в противополжую сторону
+    /// Проверка на движение в противополжную сторону
     /// </summary>
     void UpdateFlip()
     {
@@ -116,6 +126,7 @@ public class CharacterController2D : MonoBehaviour
     private void Move()
     {
        rigidbody2D.velocity = new Vector2(horizontal * speed, rigidbody2D.velocity.y);
+       horizontal = 0;
     }
 
     /// <summary>
@@ -185,24 +196,31 @@ public class CharacterController2D : MonoBehaviour
     {
         if (isLadder) // если на леснице
         {
+            isjump = false;
+
+            if (!isGround) //&& !isjump)  // если не на земле и не в прыжке
+            {
+
+                rigidbody2D.gravityScale = 0;  // откл гравитацию
+            }
+
             if (vertical != 0) // если нажаты   W или  S
             {
                 transform.Translate(new Vector2(0, speedMoveLadder * vertical * Time.fixedDeltaTime)); // движение по лестнице
                 isGround = false; // не на  земле
             }
 
-            if (!isGround && !isjump)  // если не на земле и не в прыжке
-            {
 
-                rigidbody2D.gravityScale = 0;  // откл гравитацию
-            }
 
         }
         else
         {
             rigidbody2D.gravityScale = 1;     // вкл гравитацию
+          
         }
 
+        vertical = 0;
+        
 
 
 

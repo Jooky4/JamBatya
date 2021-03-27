@@ -26,8 +26,8 @@ public class Finish : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Debug.Log("Finish");
         int rnd = Random.Range(0,3);
+        Debug.Log("Finish" + rnd);
         victoryPanel[rnd].SetActive(true);
         gameManager.StopCameraAndPlayer();
 

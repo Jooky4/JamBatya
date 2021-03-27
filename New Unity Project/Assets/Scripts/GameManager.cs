@@ -26,8 +26,7 @@ public class GameManager : MonoBehaviour
     private GameObject Camera;
     private CameraManager cameraManager;
     public bool stop;
-
-
+  
 
 
     private float valueAlcohol;
@@ -47,27 +46,27 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         sliderAlcohol.value = alcohol.alcohol;
         bottleText.text = alcohol.bottle.ToString();
 
         if (alcohol.alcohol == 1 && characterController2D.isStop)
         {
             StopCameraAndPlayer();
-            int rnd = Random.Range(0, 3);
-            Debug.Log("Belka " + rnd );
-            panelLoss[rnd].SetActive(true);
-           
+            loss();
         }
-
-        
-
-
     }
 
     public void StopCameraAndPlayer()
     {
         characterController2D.isStop = false;
         cameraManager.isMoveCamera = false;
+      
+    }
+
+    public void loss()
+    {
+        int rnd = Random.Range(0, 3);
+        Debug.Log("Belka " + rnd);
+        panelLoss[rnd].SetActive(true);
     }
 }
