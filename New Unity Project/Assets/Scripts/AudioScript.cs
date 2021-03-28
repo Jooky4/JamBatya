@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 public class AudioScript : MonoBehaviour
-{   [Tooltip ("")]
+{   [Tooltip ("Используемый звуковой миксер")]
     [SerializeField]
     private AudioMixer masterMixer;
 

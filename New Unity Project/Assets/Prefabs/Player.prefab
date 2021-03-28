@@ -100,7 +100,7 @@ MonoBehaviour:
   audioMixerGroup: {fileID: 243687075204341482, guid: 46ba6f8e09a13ce4690641eafe6cfcd5,
     type: 2}
   speed: 10
-  speedMoveLadder: 10
+  speedMoveLadder: 5
   jumpForce: 350
   isGround: 0
   isLadder: 0

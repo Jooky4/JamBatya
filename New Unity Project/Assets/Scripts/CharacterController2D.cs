@@ -61,14 +61,10 @@ public class CharacterController2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-       // if (isStop)
-      //  {
+     
             Move();
             Jump();
-      //  }
      
-       
-
     }
 
     /// <summary>
@@ -141,7 +137,7 @@ public class CharacterController2D : MonoBehaviour
                rigidbody2D.AddForce(Vector2.up * jumpForce); // прыгай 
                audioSourceJump.Play();
             }
-            isGround = false;  // не на земле 
+          
             isjump = true;     // в прыжке
             
         }
@@ -152,7 +148,7 @@ public class CharacterController2D : MonoBehaviour
     /// проверка на землю 
     /// </summary>
     /// <param name="coll"></param>
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnCollisionStay2D(Collision2D coll)
     {
         if (coll.transform.tag == "Ground")  // если обьект столкновения имеет Тег= земля
         {
@@ -163,11 +159,22 @@ public class CharacterController2D : MonoBehaviour
       
     }
 
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.transform.tag == "Ground")
+        {
+            isGround = false;  // нет земля
+            isjump = true;
+        }
+    }
+
+
+
     /// <summary>
     /// Проверка входа на лесницу
     /// </summary>
     /// <param name="col"></param>
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D col)
     {
         if (col.tag == "Ladder")   // если таг лесница
         {
@@ -196,18 +203,19 @@ public class CharacterController2D : MonoBehaviour
     {
         if (isLadder) // если на леснице
         {
-            isjump = false;
+            //isjump = false;
 
             if (!isGround) //&& !isjump)  // если не на земле и не в прыжке
             {
 
                 rigidbody2D.gravityScale = 0;  // откл гравитацию
+                
             }
 
             if (vertical != 0) // если нажаты   W или  S
             {
                 transform.Translate(new Vector2(0, speedMoveLadder * vertical * Time.fixedDeltaTime)); // движение по лестнице
-                isGround = false; // не на  земле
+                
             }
 
 
