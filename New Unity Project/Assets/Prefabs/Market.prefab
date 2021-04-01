@@ -307,10 +307,10 @@ GameObject:
   - component: {fileID: 6207155307721519725}
   - component: {fileID: 6207155307721519726}
   - component: {fileID: 5464461603638164529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     +"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -651,9 +651,9 @@ GameObject:
   - component: {fileID: 6207155307919814629}
   - component: {fileID: 6207155307919814628}
   - component: {fileID: 2122404938254796731}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u0431\u043B\u043E\u043A \u043A\u043E\u043D\u0434 (1)"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -757,10 +757,10 @@ GameObject:
   - component: {fileID: 6207155307952326946}
   - component: {fileID: 6207155307952326947}
   - component: {fileID: 7888101081647011579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     + (4)"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -864,10 +864,10 @@ GameObject:
   - component: {fileID: 6207155307998953122}
   - component: {fileID: 6207155307998953123}
   - component: {fileID: 2983814343526219518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     + (3)"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -971,10 +971,10 @@ GameObject:
   - component: {fileID: 6207155308171532709}
   - component: {fileID: 6207155308171532710}
   - component: {fileID: 1137853844672815367}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     + (5)"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1157,10 +1157,10 @@ GameObject:
   - component: {fileID: 6207155308192736960}
   - component: {fileID: 6207155308192736961}
   - component: {fileID: 3542024865656374013}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     + (1)"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1500,7 +1500,7 @@ GameObject:
   - component: {fileID: 6207155308898058616}
   - component: {fileID: 6207155308898058617}
   - component: {fileID: 1787480443833183764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     + (7)"
   m_TagString: Untagged
@@ -1607,7 +1607,7 @@ GameObject:
   - component: {fileID: 6207155308903039909}
   - component: {fileID: 6207155308903039910}
   - component: {fileID: 1171009203776474972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     + (6)"
   m_TagString: Untagged
@@ -1793,9 +1793,9 @@ GameObject:
   - component: {fileID: 6207155309174464578}
   - component: {fileID: 6207155309174464577}
   - component: {fileID: 3908097848679200029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u0431\u043B\u043E\u043A \u043A\u043E\u043D\u0434"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1899,10 +1899,10 @@ GameObject:
   - component: {fileID: 6207155309220578736}
   - component: {fileID: 6207155309220578737}
   - component: {fileID: 3086724482348763997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u043C\u0430\u0433\u0430\u0445\u0438\u043D \u043A\u0430\u0440\u043A\u0430\u0441
     + (2)"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2006,9 +2006,9 @@ GameObject:
   - component: {fileID: 6207155309327645845}
   - component: {fileID: 6207155309327645844}
   - component: {fileID: 3831501242298540139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u0431\u043B\u043E\u043A \u043A\u043E\u043D\u0434 (2)"
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

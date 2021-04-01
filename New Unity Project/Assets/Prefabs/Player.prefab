@@ -34,6 +34,7 @@ Transform:
   m_LocalScale: {x: 1.6139057, y: 1.6139057, z: 1.6139057}
   m_Children:
   - {fileID: 2941479026197077375}
+  - {fileID: 5192801847082674160}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,7 +47,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2941479025513593148}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 022851e2cfdfeda42886bb99c2dfa040, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -79,7 +80,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 022851e2cfdfeda42886bb99c2dfa040, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -99,10 +100,15 @@ MonoBehaviour:
   soundJump: {fileID: 8300000, guid: 64511184a31bd644a9e0456f1c467cf0, type: 3}
   audioMixerGroup: {fileID: 243687075204341482, guid: 46ba6f8e09a13ce4690641eafe6cfcd5,
     type: 2}
-  speed: 10
-  speedMoveLadder: 5
-  jumpForce: 350
+  speed: 15
+  speedMoveLadder: 10
+  jumpForce: 25
   isGround: 0
+  groundCheck: {fileID: 5192801847082674160}
+  checkRadius: 0.5
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
   isLadder: 0
   isjump: 0
   action: 101
@@ -315,3 +321,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &9157009488890118880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5192801847082674160}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5192801847082674160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9157009488890118880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2941479025513593144}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
